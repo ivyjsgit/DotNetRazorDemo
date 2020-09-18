@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetRazorDemo.Models\DotNetRazorDemo.Models.csproj" />
+    <ProjectReference Include="..\DotNetRazorDemo.Services\DotNetRazorDemo.Services.csproj" />
+  </ItemGroup>
+
 </Project>

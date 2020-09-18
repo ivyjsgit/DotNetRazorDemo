@@ -7,4 +7,64 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <h1>Users</h1>
+
+    <h2>Add a new user</h2>
+
+    <form method="post" asp-page-handler="OnPost">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">First name</label>
+                <input asp-for="@Model.newUser.firstName" type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+                <span asp-validation-for="@Model.newUser.firstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Last name</label>
+                <input asp-for="@Model.newUser.lastName" type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+                <span asp-validation-for="@Model.newUser.lastName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Age</label>
+                <input asp-for="@Model.newUser.age" type="text" class="form-control" id="validationDefault02" placeholder="Age" required>
+                <span asp-validation-for="@Model.newUser.age" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Age</label>
+                <input asp-for="@Model.newUser.city" type="text" class="form-control" id="validationDefault02" placeholder="City" required>
+                <span asp-validation-for="@Model.newUser.city" class="text-danger"></span>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Add User</button>
+    </form>
+
+
+    <div class="dropdown-divider"></div>
+    <h2> All Users </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Age</th>
+                <th scope="col">City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.allUsers)
+            {
+                <tr>
+                    <th scope="row">@user.id</th>
+                    <td>@user.firstName</td>
+                    <td>@user.lastName</td>
+                    <td>@user.age</td>
+                    <td>@user.city</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
 </div>
